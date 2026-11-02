@@ -23,6 +23,7 @@
     <nav>
       <a href="#screens" class="hide-sm">Screens</a>
       <a href="#bosses" class="hide-sm">Bosses</a>
+      <a href="#beta">Beta</a>
       <a href="support.html">Support</a>
     </nav>
   </div>
@@ -36,6 +37,9 @@
       <h1>Hold the Line</h1>
       <p class="lead">Monsters are marching on your castle. Build towers along the road, pick a card every level, and stand your ground all the way to the boss.</p>
       <div class="cta">
+        <a class="btn" href="#beta">Join the beta</a>
+      </div>
+      <div class="cta" style="margin-top:14px">
         <span class="store soon" title="Coming soon">
           <svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path fill="#34A853" d="M1 1l13 13L1 27c-.6-.3-1-1-1-1.8V2.8C0 2 .4 1.3 1 1z"/><path fill="#FBBC04" d="M19 9l-5 5 5 5 5.6-3.2c1.6-.9 1.6-2.8 0-3.6z"/><path fill="#4285F4" d="M14 14L1 27c.5.3 1.2.3 1.9-.1L19 19z"/><path fill="#EA4335" d="M14 14L19 9 2.9 1.1C2.2.7 1.5.7 1 1z"/></svg>
           <span><small>COMING SOON ON</small><b>Google Play</b></span>
@@ -99,6 +103,32 @@
       <figure class="phone"><img src="img/shots/menu.webp" alt="The main menu with the Green Meadow chapter" loading="lazy"><figcaption>130 chapters</figcaption></figure>
       <figure class="phone"><img src="img/shots/event.webp" alt="The Harvest Moon event" loading="lazy"><figcaption>Seasonal events</figcaption></figure>
       <figure class="phone"><img src="img/shots/quests.webp" alt="Daily login rewards and quests" loading="lazy"><figcaption>Daily rewards</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band deep" id="beta">
+  <div class="wrap">
+    <div class="panel beta">
+      <div class="head" style="margin-bottom:18px">
+        <h2 class="g">Play it before everyone else</h2>
+        <p>We're inviting testers on Android and iPhone. Leave your email and we'll send an invite.</p>
+      </div>
+      <form id="beta-form" novalidate>
+        <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+        <div class="field"><span>Phone</span>
+          <div class="segs" role="radiogroup">
+            <label><input type="radio" name="platform" value="android" checked><b>Android</b></label>
+            <label><input type="radio" name="platform" value="ios"><b>iPhone</b></label>
+            <label><input type="radio" name="platform" value="both"><b>Both</b></label>
+          </div>
+        </div>
+        <label class="field"><span>Anything to tell us? <em>(optional)</em></span><input type="text" name="note" maxlength="200" placeholder="Phone model, how much you play, a friend who sent you…"></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <p class="fine">Android invites go through Google Play, so use the Google account email that's on your phone. We only use your email for the test. <a href="privacy.html">Privacy</a>.</p>
+        <button class="btn" type="submit" id="beta-send">Count me in</button>
+        <p class="formmsg" id="beta-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -170,5 +200,32 @@
     <span class="copy">&copy; 2026 Hold the Line</span>
   </div>
 </footer>
+<script>
+// Beta sign-ups go to the game's Supabase project (a write-only function;
+// the publishable key below is meant to be public).
+(function () {
+  var URL = 'https://sylwotwblrbzujphzxsf.supabase.co/rest/v1/rpc/beta_signup';
+  var KEY = 'sb_publishable_Mkt8gyBEcAbcmJpKMEhesw_SqRs825k';
+  var form = document.getElementById('beta-form'), msg = document.getElementById('beta-msg'), btn = document.getElementById('beta-send');
+  if (!form) return;
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var email = form.email.value.trim();
+    if (form.website.value) return; // a bot filled the hidden field
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) { msg.textContent = 'That email doesn\'t look right.'; msg.className = 'formmsg bad'; return; }
+    btn.disabled = true; msg.textContent = 'Sending…'; msg.className = 'formmsg';
+    fetch(URL, { method: 'POST', headers: { apikey: KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_email: email, p_platform: form.platform.value, p_note: form.note.value.trim() || null }) })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (res) {
+        if (res === 'ok') { msg.textContent = 'You\'re on the list. Watch your inbox for the invite.'; msg.className = 'formmsg good'; form.reset(); }
+        else if (res === 'bad_email') { msg.textContent = 'That email doesn\'t look right.'; msg.className = 'formmsg bad'; }
+        else { msg.textContent = 'We\'re swamped right now. Try again in a bit.'; msg.className = 'formmsg bad'; }
+      })
+      .catch(function () { msg.textContent = 'Couldn\'t send. Check your connection and try again.'; msg.className = 'formmsg bad'; })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
