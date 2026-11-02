@@ -4,13 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hold the Line: Tower Defense</title>
-<meta name="description" content="Hold the Line is a free tower defense game for Android and iPhone. Build towers, pick cards, beat bosses. No pay-to-win.">
+<meta name="description" content="Hold the Line is a free tower defense game for Android and iPhone. Build towers, pick cards, beat bosses. Never pay-to-win.">
 <meta property="og:title" content="Hold the Line: Tower Defense">
 <meta property="og:description" content="Build towers, pick cards, beat bosses. Free, and never pay-to-win.">
-<meta property="og:image" content="img/icon.png">
+<meta property="og:image" content="https://holdthelinetd.com/img/icon.png">
+<meta name="theme-color" content="#121d3d">
 <link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,107 +21,132 @@
   <div class="wrap">
     <a class="brand" href="./"><img src="img/icon.png" alt="">Hold the Line</a>
     <nav>
-      <a href="#features" class="hide-sm">Features</a>
+      <a href="#screens" class="hide-sm">Screens</a>
+      <a href="#bosses" class="hide-sm">Bosses</a>
       <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
+  <div class="rays" aria-hidden="true"></div>
   <div class="wrap">
     <div>
+      <span class="kicker">Tower defense · Free</span>
       <h1>Hold the Line</h1>
-      <p class="lead">Monsters are marching on your castle. Build towers along the road, pick a card every level, and stop every wave, right up to the boss.</p>
-      <div class="badges">
+      <p class="lead">Monsters are marching on your castle. Build towers along the road, pick a card every level, and stand your ground all the way to the boss.</p>
+      <div class="cta">
         <a class="store" href="https://play.google.com/store/apps/details?id=app.directgigs.holdtheline">
           <svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path fill="#34A853" d="M1 1l13 13L1 27c-.6-.3-1-1-1-1.8V2.8C0 2 .4 1.3 1 1z"/><path fill="#FBBC04" d="M19 9l-5 5 5 5 5.6-3.2c1.6-.9 1.6-2.8 0-3.6z"/><path fill="#4285F4" d="M14 14L1 27c.5.3 1.2.3 1.9-.1L19 19z"/><path fill="#EA4335" d="M14 14L19 9 2.9 1.1C2.2.7 1.5.7 1 1z"/></svg>
           <span><small>GET IT ON</small><b>Google Play</b></span>
         </a>
-        <span class="store soon">
-          <svg width="22" height="27" viewBox="0 0 22 27" aria-hidden="true"><path fill="#fff" d="M18.2 14.3c0-3.3 2.7-4.9 2.8-5-1.5-2.2-3.9-2.5-4.7-2.6-2-.2-3.9 1.2-4.9 1.2s-2.6-1.2-4.3-1.1C4.900 6.800 2.900 8.100 1.700 10.100c-2.400 4.100-.6 10.200 1.700 13.500 1.100 1.600 2.500 3.400 4.200 3.400 1.700-.1 2.300-1.100 4.400-1.100s2.600 1.100 4.400 1.100c1.800 0 3-1.700 4.100-3.300 1.300-1.900 1.800-3.700 1.800-3.800-.1 0-3.500-1.300-3.600-5.200zM15 4.400c.9-1.100 1.500-2.600 1.400-4.100-1.300.1-2.900.9-3.800 2-.8.900-1.600 2.500-1.400 3.900 1.400.1 2.900-.7 3.800-1.800z"/></svg>
+        <span class="store soon" title="Coming soon">
+          <svg width="22" height="26" viewBox="0 0 384 470" aria-hidden="true"><path fill="#fff" d="M318 250c-1-56 46-83 48-84-26-38-67-44-81-44-35-3-67 20-85 20-17 0-44-20-73-19-37 1-72 22-91 56-39 68-10 168 28 223 18 27 40 57 69 56 28-1 38-18 72-18 33 0 43 18 72 17 30 0 49-27 67-54 21-31 30-61 30-62-1 0-58-22-59-87zM262 85c15-19 26-44 23-70-22 1-49 15-65 34-14 16-27 43-23 68 25 2 50-13 65-32z"/></svg>
           <span><small>COMING SOON ON THE</small><b>App Store</b></span>
         </span>
       </div>
       <div class="chips">
-        <span class="chip">Free to play</span>
-        <span class="chip">Never pay-to-win</span>
-        <span class="chip">Plays offline</span>
+        <span class="chip"><b>Free</b> to play</span>
+        <span class="chip"><b>Never</b> pay-to-win</span>
+        <span class="chip">Plays <b>offline</b></span>
       </div>
     </div>
-    <div class="phone"><img src="img/gameplay.webp" alt="A match in Hold the Line: towers along a winding road, firing at a hydra boss" width="620" height="896"></div>
+    <div class="stage" aria-hidden="true">
+      <img class="roc float c" src="img/boss-stormroc.webp" alt="">
+      <img class="castle float" src="img/castle-3.webp" alt="">
+      <img class="hero-c float b" src="img/hero-rook.webp" alt="">
+      <img class="boss-c float" src="img/boss-pumpkinking.webp" alt="">
+    </div>
   </div>
+  <div class="grassline"></div>
 </section>
 
-<section class="band" id="features">
+<section class="band grass">
   <div class="wrap">
-    <h2>Every match plays out differently</h2>
-    <p class="sub">Each level up deals you three cards. Pick one, place it, and build a defense that's yours.</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="art"><img src="img/tower-storm-t3.webp" alt=""></div>
+    <div class="head">
+      <h2 class="g">No two matches alike</h2>
+      <p>Every level up deals you three cards. Pick one, place it, and build a defense that's all yours.</p>
+    </div>
+    <div class="grid3 lift">
+      <div class="panel feat">
+        <div class="art"><img src="img/tower-storm-t3.webp" alt="Storm tower"></div>
         <h3>101 towers</h3>
         <p>Archers, cannons, lightning, frost and stranger things. Merge matching towers to rank them up.</p>
       </div>
-      <div class="card">
-        <div class="art"><img src="img/hero-rook-idle.webp" alt=""></div>
+      <div class="panel feat">
+        <div class="art"><img src="img/hero-rook.webp" alt="Captain Rook"></div>
         <h3>12 heroes</h3>
-        <p>Pick a hero who walks onto the road and fights beside your towers, with a special power of their own.</p>
+        <p>Your hero walks onto the road and fights beside your towers, with a special power all their own.</p>
       </div>
-      <div class="card">
-        <div class="art"><img src="img/card-meteor.webp" alt=""></div>
-        <h3>Cards and skills</h3>
+      <div class="panel feat">
+        <div class="art"><img src="img/tower-dragongate-t3.webp" alt="Dragon Gate tower"></div>
+        <h3>Cards &amp; skills</h3>
         <p>Meteors, blizzards, walls, extra road, moving a tower. Every pick changes the match.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band alt">
-  <div class="wrap" style="text-align:center">
-    <h2>26 bosses are waiting</h2>
-    <p class="sub">The ogre, the hydra that grows its heads back, the storm roc, the Pumpkin King and more. 106 kinds of enemies across 130 chapters.</p>
-    <div class="lineup">
-      <img src="img/boss-ogre-walk-1.webp" alt="Grumbold the Ogre">
-      <img src="img/boss-hydra-walk-1.webp" alt="The Bog Hydra">
-      <img src="img/boss-pumpkinking-walk-1.webp" alt="The Pumpkin King">
-      <img src="img/boss-stormroc-walk-1.webp" alt="The Storm Roc">
-    </div>
-  </div>
-</section>
-
-<section class="band">
+<section class="band deep" id="screens">
   <div class="wrap">
-    <div class="grid3">
-      <div class="card">
-        <div class="art"><img src="img/castle-victory.webp" alt=""></div>
-        <h3>Campaign and Endless</h3>
-        <p>Push through the chapters on four difficulty tiers, then see how many waves you can last in Endless.</p>
-      </div>
-      <div class="card">
-        <div class="art"><img src="img/chest-gold.webp" alt=""></div>
-        <h3>Events every season</h3>
-        <p>13 events through the year, from Harvest Moon to Frostfall and Pirate Week, each with its own foes, boss and rewards.</p>
-      </div>
-      <div class="card">
-        <div class="art"><img src="img/tower-frost-t3.webp" alt=""></div>
-        <h3>Clans and leaderboards</h3>
-        <p>Join a clan, chat, take on clan sieges together and climb the weekly boards.</p>
+    <div class="head">
+      <h2 class="g">Take a look</h2>
+      <p>Straight from the game on a phone.</p>
+    </div>
+    <div class="phones">
+      <figure class="phone"><img src="img/shots/boss.webp" alt="A boss fight on the last wave" loading="lazy"><figcaption>Boss fights</figcaption></figure>
+      <figure class="phone"><img src="img/shots/cards.webp" alt="Picking one of three cards after a wave" loading="lazy"><figcaption>Pick your cards</figcaption></figure>
+      <figure class="phone"><img src="img/shots/menu.webp" alt="The main menu with the Green Meadow chapter" loading="lazy"><figcaption>130 chapters</figcaption></figure>
+      <figure class="phone"><img src="img/shots/event.webp" alt="The Harvest Moon event" loading="lazy"><figcaption>Seasonal events</figcaption></figure>
+      <figure class="phone"><img src="img/shots/quests.webp" alt="Daily login rewards and quests" loading="lazy"><figcaption>Daily rewards</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band night" id="bosses">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="g">26 bosses are coming</h2>
+      <p>The ogre, the hydra that grows its heads back, the Storm Roc, the Tide Kraken, the Pumpkin King and more.</p>
+    </div>
+    <div class="bosses">
+      <div class="boss"><img src="img/boss-ogre.webp" alt="Grumbold the Ogre" loading="lazy"><span>Grumbold</span></div>
+      <div class="boss"><img src="img/boss-hydra.webp" alt="The Bog Hydra" loading="lazy"><span>Bog Hydra</span></div>
+      <div class="boss"><img src="img/boss-kraken.webp" alt="The Tide Kraken" loading="lazy"><span>Tide Kraken</span></div>
+      <div class="boss"><img src="img/boss-pumpkinking.webp" alt="The Pumpkin King" loading="lazy"><span>Pumpkin King</span></div>
+      <div class="boss"><img src="img/boss-stormroc.webp" alt="The Storm Roc" loading="lazy"><span>Storm Roc</span></div>
+    </div>
+    <div class="stats">
+      <div class="panel stat"><b>130</b><span>chapters, four difficulty tiers each</span></div>
+      <div class="panel stat"><b>106</b><span>kinds of enemies</span></div>
+      <div class="panel stat"><b>13</b><span>events through the year</span></div>
+      <div class="panel stat"><b>∞</b><span>Endless mode and weekly boards</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band deep">
+  <div class="wrap">
+    <div class="panel fair">
+      <img src="img/tower-frost-t3.webp" alt="">
+      <div>
+        <h2 class="g" style="font-size:40px">Fair play, always</h2>
+        <p>Hold the Line is free. Every tower, hero and upgrade is earned by playing. Nothing that makes you stronger is ever for sale.</p>
+        <ul>
+          <li>A short ad between some matches, never during one.</li>
+          <li>Clans, chat, clan sieges and leaderboards, all free.</li>
+          <li>An optional Supporter pass removes ads and adds cosmetic styles. Looks only, no power.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band alt">
-  <div class="wrap fair">
-    <img src="img/icon-crown.webp" alt="">
-    <div>
-      <h2>Fair play, always</h2>
-      <p>Hold the Line is free. Every tower, hero and upgrade is earned by playing. Nothing that makes you stronger is ever for sale.</p>
-      <ul>
-        <li>A short ad between some matches, never during one.</li>
-        <li>An optional Supporter pass removes ads and adds cosmetic tower styles and board skins. Looks only, no power.</li>
-      </ul>
+<section class="band grass final">
+  <div class="wrap">
+    <h2 class="g">Ready to hold the line?</h2>
+    <div class="cta">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=app.directgigs.holdtheline">Play free on Android</a>
     </div>
   </div>
 </section>
